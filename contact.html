@@ -1,19 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Title</title>
 
-    <!-- link CSS stylesheet below -->
-    
-    
-    <!-- imports JS file -->
-    <script defer src="script.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update Title</title>
+
+  <!-- link CSS stylesheet below -->
+  <link rel="stylesheet" href="style.css">
+  <!-- imports firebase-->
+  <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <script defer type="module" src="./firebase/init-firebase.js">
+  </script>
 </head>
+
 <body>
-    <!-- Add navbar to link all html pages. -->
-    <!-- 
+  <nav>
+
+    <ul class="nav-items">
+      <a href="./index.html" style="text-decoration: none; color: white;">
+        <li>Home</li>
+      </a>
+      <a href="./about.html" style="text-decoration: none; color: white;">
+        <li>About</li>
+      </a>
+      <a href="./contact.html" style="text-decoration: none; color: white;">
+        <li>Contact</li>
+      </a>
+      <a href="./projects.html" style="text-decoration: none; color: white;">
+        <li>Projects</li>
+      </a>
+    </ul>
+
+  </nav>
+
+  <!-- Add navbar to link all html pages. -->
+  <!-- 
         Add contact info, including:
         - GitHub account
         - Email address
@@ -21,11 +44,55 @@
         - Resume (when completed) 
     -->
 
-    <h1>
-      Contact
-    </h1>
-    <div>
-      <p>This is a blank template.</p>
-    </div>
-  </body>
+
+
+
+  <h1 style="display: flex;
+    justify-content:center;">
+    Contact page
+  </h1>
+  <!--Form below | Uses Invotes PostMail to send message straight to my email-->
+  <form action="https://postmail.invotes.com/send" method="post" id="email_form">
+
+    <input type="text" name="subject" placeholder="Subject" />
+    <textarea name="text" placeholder="Message"></textarea>
+    <input type="hidden" name="access_token" value="j42gh1phm6p4fonpqfaddulo" />
+    <!-- return urls can be fully qualified -OR-
+             start with / for root relative -OR-
+             start with . for url relative -->
+    <input type="hidden" name="success_url" value=".?message=Email+Successfully+Sent%21&isError=0" />
+    <input type="hidden" name="error_url" value=".?message=Email+could+not+be+sent.&isError=1" />
+
+
+    <!-- set the reply-to address -->
+    <!-- <input type="text" name="reply_to"
+                    placeholder="Your Email" /> -->
+
+    <!-- to append extra fields, use the extra_ prefix.
+            Entries will be appended to your message body. -->
+    <!-- <input type="text" name="extra_phone_number"
+                    placeholder="Phone Number" /> -->
+
+    <!-- to split your message into 160 chars
+             for an sms gateway -->
+    <!-- <input type="hidden"
+                    name="sms_format" value="true" /> -->
+
+    <input id="submit_form" type="submit" value="Send" />
+    <!-- not required, but we'd appreciate it if you'd link to us somewhere on your site -->
+    <p>Powered by <a href="https://postmail.invotes.com" target="_blank">PostMail</a></p>
+  </form>
+  <!-- optional, prevents the submit button from being pressed more than once -->
+  <script>
+    var submitButton = document.getElementById("submit_form");
+    var form = document.getElementById("email_form");
+    form.addEventListener("submit", function (e) {
+      setTimeout(function () {
+        submitButton.value = "Sending...";
+        submitButton.disabled = true;
+      }, 1);
+    });
+  </script>
+</body>
+
 </html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- @NOTE linking our CSS -->
+    <link rel="stylesheet" href="chatroom.css" />
+
+    <!-- @NOTE linking firebase version 8 CDNs first -->
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+    <!-- @NOTE initializing firebase -->
+    <script defer src="init-firebase.js"></script>
+
+    <!-- @NOTE link our main.js AFTER we load initialize firebase -->
+    <script src="chatroom.js" defer></script>
+    <!--<script src=".js" defer></script>-->
+    <!--<script src="init-deepl.js" defer></script>-->
+    <title>Fire Messages 2.0</title>
+
+    <!--  <script src="/sign in form/index.html"></script>-->
+    <!-- ayo what are you doing sir!-->
+</head>
+
+<body>
+    <div id="one">
+        <div id="main">
+            <div id="sidebar" class="nav">
+                <a href="/Web/home.html">  <div id="Home" class="nav">Home</div></a>
+               <a href="/Web/home.html"><div id="Our Story" class="nav">Our Story</div></a>
+                <a href="/Web/home.html"><div id="Contact Us" class="nav">Contact</div></a>
+                <a href="/helpPage/help.html" target="_blank"> <div class="nav">Language List</div></a>
+            </div>
+            <div id="chatbox-container">
+                <h1 id="title"></h1>
+
+                <!-- @NOTE this is where we'll append messages -->
+                <div id="all-messages">
+                    <!-- @NOTE sample message -->
+                    <!-- <div class="single-message">
+                <p class="single-message-username">andymina:</p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Doloremque laboriosam dignissimos molestias ad illum odio
+                    dolor beatae dolore! Possimus laborum culpa debitis at
+                    obcaecati sit assumenda, placeat delectus reiciendis
+                    accusamus!
+                </p>
+            </div> -->
+                    
+                </div>
+
+                <div id="typing-container">
+                    <form>
+                        <!-- @NOTE this input has an id #username 
+                    <div class="input-container">
+                        <label>Username:</label>
+                        <input type="text" id="username" />
+                    </div>
+                -->
+                        <!-- @NOTE this input has an id #message -->
+                        <div class="input-container">
+                            <label> Translating from:
+                                <input type="text" id="fromLang">
+                            </label>
+                            <label>Translate to:
+                                <input type="text" id="toLang">
+                            </label>
+
+                            <label>Message:
+                                <input type="text" id="message">
+                            </label>
+                        </div>
+                    </form>
+
+                    <button id="send-btn">Send</button>
+                </div>
+            </div>
+        </div>
+        <!-- <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-database.js"></script>
+    <script>
+      // Paste your Firebase configuration here
+      
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+  </head>
+  <body>
+    <h1>Create Subsection</h1>
+    <button id="createSubsectionButton">Create Subsection</button>
+  
+    <script>
+      // JavaScript code from the previous example
+    </script> -->
+    </div>
+
+    <div id="two">
+        <form class="form_container">
+
+            <div class="nickname">
+                <label for="nickname">Enter nickname:</label>
+                <input type="text" id="nickname" placeholder="Enter nickname here">
+            </div>
+            <button id="submit_button">
+                Submit!
+            </button>
+        </form>
+    </div>
+   
+</body>
+
+</html>
